@@ -1,0 +1,279 @@
+openapi: 3.1.0
+info:
+  title: Vehicle Service Collection
+  version: 1.0.0
+  description: Vehicle service description
+servers:
+  - url: '{{baseUrl}}'
+paths:
+  /vehicles:
+    get:
+      summary: Get all vehicles
+      responses:
+        '200':
+          description: 200 - Success
+        '500':
+          description: 500 - Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: An unexpected error occurred.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+    post:
+      summary: Create a vehicle
+      responses:
+        '201':
+          description: 201 - Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  nickName:
+                    type: string
+                  vin:
+                    type: string
+                  make:
+                    type: string
+                  model:
+                    type: string
+                  year:
+                    type: string
+                  miles:
+                    type: string
+              example:
+                id: 1
+                nickName: The Lisa Marie
+                vin: 4M2DV11W4RDJ53329
+                make: Mercury
+                model: Villager
+                year: '1994'
+                miles: 159,864
+        '400':
+          description: 400 - Missing required attribute
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: 'Request body missing required attribute: vin'
+        '409':
+          description: 409 - Vehicle already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: >-
+                  Vehicle with VIN JN8AZ2KR1AT169594 already exists. Existing
+                  vehicle ID: 2
+        '500':
+          description: 500 - Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: An unexpected error occurred.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nickName:
+                  type: string
+                vin:
+                  type: string
+                make:
+                  type: string
+                model:
+                  type: string
+                year:
+                  type: string
+                miles:
+                  type: integer
+            example:
+              nickName: The Lisa Marie
+              vin: 4M2DV11W4RDJ53329
+              make: Mercury
+              model: Villager
+              year: '1994'
+              miles: 159864
+  /vehicles/{id}:
+    get:
+      summary: Retrieve a vehicle
+      responses:
+        '200':
+          description: 200 - Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  nickName:
+                    type: string
+                  vin:
+                    type: string
+                  make:
+                    type: string
+                  model:
+                    type: string
+                  year:
+                    type: string
+                  miles:
+                    type: integer
+              example:
+                id: 1
+                nickName: The Lisa Marie
+                vin: 4M2DV11W4RDJ53329
+                make: Mercury
+                model: Villager
+                year: '1994'
+                miles: 159864
+        '404':
+          description: 404 - Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: 'Vehicle with id: 0 not found.'
+        '500':
+          description: 500 - Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: An unexpected error occurred.
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 1
+    patch:
+      summary: Update a collection
+      responses:
+        '200':
+          description: 200 - Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  nickName:
+                    type: string
+                  vin:
+                    type: string
+                  make:
+                    type: string
+                  model:
+                    type: string
+                  year:
+                    type: string
+                  miles:
+                    type: integer
+              example:
+                id: 1
+                nickName: The Lisa Marie
+                vin: 4M2DV11W4RDJ53329
+                make: Mercury
+                model: Villager
+                year: '1994'
+                miles: 159999
+        '400':
+          description: 400 - Bad request body
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: Bad request body.
+        '500':
+          description: 500 - Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: An unexpected error occurred.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nickName:
+                  type: string
+                vin:
+                  type: string
+                make:
+                  type: string
+                model:
+                  type: string
+                year:
+                  type: string
+                miles:
+                  type: integer
+            example:
+              nickName: The Lisa Marie
+              vin: 4M2DV11W4RDJ53329
+              make: Mercury
+              model: Villager
+              year: '1994'
+              miles: 159999
+    delete:
+      summary: Delete a vehicle
+      responses:
+        '204':
+          description: 204 - Success
+        '500':
+          description: 500 - Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: An unexpected error occurred.

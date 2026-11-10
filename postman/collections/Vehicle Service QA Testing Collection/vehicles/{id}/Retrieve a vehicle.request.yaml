@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/vehicles/:id"
+method: GET
+headers:
+  Accept: application/json
+pathVariables:
+  id: "1"
+settings: {}
+examples: ./.resources/Retrieve a vehicle.resources/examples
+order: 1000

@@ -1,0 +1,20 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/vehicles/:id"
+  method: GET
+  headers:
+    Accept: application/json
+  pathVariables:
+    id: "1"
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Vehicle with id: 0 not found."
+      }
+order: 2000

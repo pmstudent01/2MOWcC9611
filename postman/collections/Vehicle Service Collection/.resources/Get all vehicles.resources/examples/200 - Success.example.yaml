@@ -1,0 +1,47 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/vehicles"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  body:
+    type: text
+    content: "[\r
+
+      \    {\r
+
+      \        \"id\": 1,\r
+
+      \        \"nickName\": \"The Lisa Marie\",\r
+
+      \        \"vin\": \"4M2DV11W4RDJ53329\",\r
+
+      \        \"make\": \"Mercury\",\r
+
+      \        \"model\": \"Villager\",\r
+
+      \        \"year\": \"1994\",\r
+
+      \    },\r
+
+      \    {\r
+
+      \        \"id\": 2,\r
+
+      \        \"nickName\": \"Dolly\",\r
+
+      \        \"vin\": \"JN8AZ2KR1AT169594\",\r
+
+      \        \"make\": \"Nissan\",\r
+
+      \        \"model\": \"Cube\",\r
+
+      \        \"year\": \"2010\",\r
+
+      \        \"miles\": 59000\r
+
+      \    }\r
+
+      ]"
+order: 2000

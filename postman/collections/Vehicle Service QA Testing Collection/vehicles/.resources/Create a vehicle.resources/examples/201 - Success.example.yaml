@@ -1,0 +1,36 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/vehicles"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "nickName": "The Lisa Marie",
+        "vin": "4M2DV11W4RDJ53329",
+        "make": "Mercury",
+        "model": "Villager",
+        "year": "1994",
+        "miles": 159864
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 1,
+        "nickName": "The Lisa Marie",
+        "vin": "4M2DV11W4RDJ53329",
+        "make": "Mercury",
+        "model": "Villager",
+        "year": "1994",
+        "miles": "159,864"
+      }
+order: 1000

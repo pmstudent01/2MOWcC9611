@@ -1,0 +1,5 @@
+name: Local - Agent Mode
+values:
+  - key: baseUrl
+    value: ''
+color: 300
