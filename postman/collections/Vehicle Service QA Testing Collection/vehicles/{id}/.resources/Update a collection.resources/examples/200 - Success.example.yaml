@@ -1,0 +1,38 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/vehicles/:id"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  pathVariables:
+    id: "1"
+  body:
+    type: json
+    content: |-
+      {
+        "nickName": "The Lisa Marie",
+        "vin": "4M2DV11W4RDJ53329",
+        "make": "Mercury",
+        "model": "Villager",
+        "year": "1994",
+        "miles": 159999
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 1,
+        "nickName": "The Lisa Marie",
+        "vin": "4M2DV11W4RDJ53329",
+        "make": "Mercury",
+        "model": "Villager",
+        "year": "1994",
+        "miles": 159999
+      }
+order: 1000

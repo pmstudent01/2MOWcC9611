@@ -1,0 +1,66 @@
+$kind: http-request
+url: "{{baseUrl}}/vehicles/:id"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: id
+    value: "1"
+    $type: |-
+      {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "value"
+        ]
+      }
+body:
+  type: json
+  content: |-
+    {
+      "nickName": "The Lisa Marie",
+      "vin": "4M2DV11W4RDJ53329",
+      "make": "Mercury",
+      "model": "Villager",
+      "year": "1994",
+      "miles": 159999
+    }
+  $type: |-
+    {
+      "type": "object",
+      "properties": {
+        "nickName": {
+          "type": "string"
+        },
+        "vin": {
+          "type": "string"
+        },
+        "make": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        },
+        "miles": {
+          "type": "integer"
+        }
+      }
+    }
+settings: {}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+examples: ./.resources/Update a collection.resources/examples
+order: 3000

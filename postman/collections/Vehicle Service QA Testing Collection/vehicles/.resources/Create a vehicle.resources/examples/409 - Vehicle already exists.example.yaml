@@ -1,0 +1,30 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/vehicles"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "nickName": "The Lisa Marie",
+        "vin": "4M2DV11W4RDJ53329",
+        "make": "Mercury",
+        "model": "Villager",
+        "year": "1994",
+        "miles": 159864
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Vehicle with VIN JN8AZ2KR1AT169594 already exists. Existing vehicle ID: 2"
+      }
+order: 3000

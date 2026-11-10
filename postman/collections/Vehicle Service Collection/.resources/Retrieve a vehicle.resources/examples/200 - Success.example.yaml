@@ -1,0 +1,53 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/vehicles/:id"
+  method: GET
+  headers:
+    Accept: application/json
+  pathVariables:
+    id: "1"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 1,
+        "nickName": "The Lisa Marie",
+        "vin": "4M2DV11W4RDJ53329",
+        "make": "Mercury",
+        "model": "Villager",
+        "year": "1994",
+        "miles": 159864
+      }
+    $type: |-
+      {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nickName": {
+            "type": "string"
+          },
+          "vin": {
+            "type": "string"
+          },
+          "make": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "year": {
+            "type": "string"
+          },
+          "miles": {
+            "type": "integer"
+          }
+        }
+      }
+order: 1000

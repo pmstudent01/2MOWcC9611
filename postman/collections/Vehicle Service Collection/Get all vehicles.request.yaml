@@ -1,0 +1,36 @@
+$kind: http-request
+url: "{{baseUrl}}/vehicles"
+method: GET
+headers:
+  - key: Accept
+    value: application/json
+    $type: |-
+      {
+        "type": "",
+        "format": "",
+        "required": false,
+        "deprecated": false,
+        "default": "",
+        "enum": [],
+        "pattern": "",
+        "minLength": "",
+        "maxLength": "",
+        "minItems": "",
+        "maxItems": "",
+        "minimum": "",
+        "maximum": "",
+        "uniqueItems": false
+      }
+body:
+  type: json
+  content: ""
+settings: {}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+examples: ./.resources/Get all vehicles.resources/examples
+order: 5000

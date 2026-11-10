@@ -1,0 +1,6 @@
+name: Mock Environment
+values:
+  - key: baseUrl
+    value: ""
+    enabled: true
+color: null

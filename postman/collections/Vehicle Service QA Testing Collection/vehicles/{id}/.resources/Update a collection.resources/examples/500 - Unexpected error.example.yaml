@@ -1,0 +1,32 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/vehicles/:id"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  pathVariables:
+    id: "1"
+  body:
+    type: json
+    content: |-
+      {
+        "nickName": "The Lisa Marie",
+        "vin": "4M2DV11W4RDJ53329",
+        "make": "Mercury",
+        "model": "Villager",
+        "year": "1994",
+        "miles": 159999
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "An unexpected error occurred."
+      }
+order: 3000
